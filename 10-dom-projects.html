@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom Projects</title>
+</head>
+<style>
+
+  body{
+    font-family: Arial;
+  }
+
+
+
+  .js-subscribe-button{
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+
+  .is-subscribed{
+    background-color: rgb(240,240,240);
+    color: black;
+  }
+
+  .cost-input{
+    font-size: 15px;
+    padding: 10px;
+  }
+  .calculate-total{
+    background-color: green;
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+
+
+</style>
+<body>
+
+<p>YouTube Subscribe Button</p>
+<button onclick="subscribe();" class="js-subscribe-button">Subscribe</button>
+
+<p>Amazon Shipping Calculator</p>
+<input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="handleCostKeydown(event) ">
+<button onclick="calculateTotal();" class="calculate-total">Calculate</button>
+
+<p class="js-total-cost"></p>
+
+<script>
+
+function handleCostKeydown(event){
+  if (event.key === 'Enter'){
+    calculateTotal();
+  }
+}
+
+function calculateTotal() {
+  const inputElement = document.querySelector('.js-cost-input'); // Fixed missing dot
+  let cost = Number(inputElement.value); // Convert input to number
+
+  if (cost < 40) {
+    cost += 10; // Add $10 shipping
+  }
+
+  document.querySelector('.js-total-cost').innerHTML = `$${cost.toFixed(2)}`; // Ensure 2 decimal places
+}
+
+function subscribe() {
+  const buttonElement = document.querySelector('.js-subscribe-button');
+
+  if (buttonElement.innerHTML === 'Subscribe') {
+    buttonElement.innerHTML = 'Subscribed';
+    buttonElement.classList.add('is-subscribed');
+  } else {
+    buttonElement.innerHTML = 'Subscribe';
+    buttonElement.classList.remove('is-subscribed');
+  }
+}
+</script>
+
+</body>
+</html>

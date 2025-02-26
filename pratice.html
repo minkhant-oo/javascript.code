@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice To DO</title>
+  <link rel="stylesheet" href="styles/practice.css">
+</head>
+<body>
+  
+<div class="container">
+  <p class="header">Practice To Do</p>
+  <input type="text" class="js-todoInput" placeholder="Enter To do List" onkeydown="handlekeydown(event)">
+  <input type="date" class="js-tododate">
+  <button onclick="addTodo()" class="add-button">Add</button>
+</div>
+
+<div class="js-todo-list todo-grid"></div>
+
+<script src="scripts/practice.js"></script>
+</body>
+</html>
